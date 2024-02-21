@@ -86,8 +86,8 @@ st.session_state.openai_key = "sk-IqWVekktGS0yhDrRHkymT3BlbkFJEXMgnX7AfsxGhj0mSy
     # if st.session_state.get("openai_key") is not None:
 
 current_directory = os.getcwd()
-# path = current_directory+ '/' + faiss_name
-path = current_directory+'/'+"vectorDB_Sungy_CS"
+path = current_directory+ '/' + 'vectorDB'
+#path = './' + 'vectorDB'
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2",
     model_kwargs={'device': 'cpu'})
