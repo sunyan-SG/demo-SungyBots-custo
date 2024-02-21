@@ -31,7 +31,8 @@ class StreamHandler(BaseCallbackHandler):
         self.text += token
         self.container.markdown(self.text)
 
-st.session_state.openai_key = os.getenv("OPENAI_API_KEY")
+os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
+st.session_state.openai_key = os.getenv('OPENAI_API_KEY')
 
 st.set_page_config(page_title="AI Chatbot for custo",
                    layout="wide",
@@ -115,7 +116,8 @@ if st.session_state.vectorDB is not None:
             temperature=0,
             streaming=True,
             verbose=False,
-            callbacks=[stream_handler], )
+            #callbacks=[stream_handler],
+        )
 
         st.session_state.conversation_chain = ConversationalRetrievalChain.from_llm(
             llm=llm,
