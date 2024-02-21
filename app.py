@@ -31,6 +31,7 @@ class StreamHandler(BaseCallbackHandler):
         self.text += token
         self.container.markdown(self.text)
 
+st.session_state.openai_key = os.getenv("OPENAI_API_KEY")
 
 st.set_page_config(page_title="AI Chatbot for custo",
                    layout="wide",
@@ -68,7 +69,7 @@ memory = ConversationBufferMemory(
     memory_key="chat_history", input_key="question", return_messages=True)
     #memory_key="chat_history",chat_memory=msgs,return_messages=True)
 
-st.session_state.openai_key = "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"
+
 # with st.sidebar:
 #     st.subheader("Your API key and documents")
 #     if st.session_state.get("openai_key") is None:

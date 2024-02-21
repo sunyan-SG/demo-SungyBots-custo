@@ -50,7 +50,7 @@ if st.button("Process"):
 
     # Save faiss vector to disk or store in a database/cloud storage
     file = st.session_state.pdf_docs[0]
-    print(file)
+    #st.write(file)
     name = 'vectorDB_'+file.name
     vectorDB.save_local(name)
 
